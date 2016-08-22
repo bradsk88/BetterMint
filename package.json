@@ -1,0 +1,9 @@
+{
+  "name": "MintBetterment",
+  "description": "Surface improvements to Mint.com",
+  "version": "1.0.0",
+  "dependencies": {
+    "reactus": "^1.0.0",
+    "jquery": "^3.0.0"
+  }
+}
