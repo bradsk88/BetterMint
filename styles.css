@@ -5,3 +5,17 @@
     font-weight: 800;
     box-shadow: -1.5em 0 0 rgba(0,122,94,0.25);
 }
+
+#module-budget table div.bar span.bettermint-budget-bar-supplement {
+    background: none;
+    height: 85%;
+    position: absolute;
+}
+
+#module-budget table div.bar span.bettermint-budget-bar-supplement:hover {
+    background: #eaf9f5; /* Old browsers */
+    background: -moz-linear-gradient(top,  #eaf9f5 0%, #68cbd8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #eaf9f5 0%,#68cbd8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #eaf9f5 0%,#68cbd8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaf9f5', endColorstr='#68cbd8',GradientType=0 ); /* IE6-9 */
+}
