@@ -122,7 +122,7 @@ function addBudgetBarSupplement(node) {
         var oldHeight = monthLine.offsetHeight;
         // monthLine.style.height = (oldHeight + 28) + 'px';
 
-    }, 1000);
+    }, 5000);
 }
 
 function supplementAdded(nodeId) {
