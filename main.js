@@ -14,10 +14,12 @@ function hasClass(node, clazz) {
 }
 
 function initializeBetterMint(leftColumnNode) {
-    var badge = document.createElement("div");
-    badge.classList = ['bm-header-badge'];
-    badge.innerHTML = "BetterMint Extension is Active";
-    leftColumnNode.innerHTML = badge.outerHTML + leftColumnNode.innerHTML
+    setTimeout(function() {
+        var badge = document.createElement("div");
+        badge.classList = ['bm-header-badge'];
+        badge.innerHTML = "BetterMint Extension is Active";
+        leftColumnNode.innerHTML = badge.outerHTML + leftColumnNode.innerHTML
+    }, 2000);
 }
 
 var observer = new MutationObserver(function(mutations) {
@@ -35,6 +37,7 @@ var observer = new MutationObserver(function(mutations) {
 //                initializeBetterMint(node);
             }
         }
+        return true;
     });
 });
 observer.observe(document, { childList: true, subtree: true });

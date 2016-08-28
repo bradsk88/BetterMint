@@ -15,8 +15,6 @@
       "matches": ["http://*.mint.com/*", "https://*.mint.com/*"],
       "css": ["styles.css"],
       "js": [
-        "node_modules/mustache/mustache.js",
-        "node_modules/jquery/dist/jquery.js",
         "main.js"
       ]
     }
