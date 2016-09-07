@@ -86,7 +86,7 @@ function getMoneySpent(budgetRowNode) {
         if (hasClass(child, 'bar')) {
             var spans = child.getElementsByTagName('span');
             if (!!spans) {
-                return Number(spans[0].innerHTML.replace(/[^0-9\.]+/g,""));
+                return Number(spans[0].innerHTML.replace('–', '-').replace(/[^0-9^\-\.]+/g,""));
             }
         }
     }
@@ -95,34 +95,40 @@ function getMoneySpent(budgetRowNode) {
 
 function addBudgetBarSupplement(node) {
     setTimeout(function() {
-        var _node = document.getElementById(node.id);
-        var spent = getMoneySpent(node);
-        var budgeted = getMoneyBudgeted(node);
-        var budgetCategory = getBudgetCategory(node);
-
-        if (spent == null || budgeted == null) {
-            console.log("Failed to parse money spent for node with ID: " + node.id);
-            return;
-        }
-        var leftPixels = 285 * (spent / budgeted);
-        if (285 - leftPixels < 10) {
-            return;
-        }
-        var left = leftPixels + "px";
-        var monthLine = document.getElementById('month-line');
-        var monthLineLeft = Number(monthLine.style.left.replace('px', ''));
-        if (leftPixels > monthLineLeft) {
-            return;
-        }
-        var right = (285 - monthLineLeft) + 'px';
-        var amountLeft = ((monthLineLeft / 285) * budgeted) - spent;
-        var tr = buildBarHtml(node.id, right, left, amountLeft, budgetCategory);
-        var barDiv = _node.getElementsByTagName('div')[0];
-        barDiv.innerHTML = barDiv.innerHTML + tr.outerHTML;
-        var oldHeight = monthLine.offsetHeight;
-        // monthLine.style.height = (oldHeight + 28) + 'px';
-
+        doAddBudgetBarSupplement(node);
     }, 5000);
+}
+
+function doAddBudgetBarSupplement(node) {
+    var _node = document.getElementById(node.id);
+    var spent = getMoneySpent(node);
+    var budgeted = getMoneyBudgeted(node);
+    var budgetCategory = getBudgetCategory(node);
+
+    if (spent == null || budgeted == null) {
+        console.log("Failed to parse money spent for node with ID: " + node.id);
+        return;
+    }
+    var leftPixels = 285 * (spent / budgeted);
+    if (285 - leftPixels < 10) {
+        return;
+    }
+    if (leftPixels < 0) {
+        leftPixels = 0;
+    }
+    var left = leftPixels + "px";
+    var monthLine = document.getElementById('month-line');
+    var monthLineLeft = Number(monthLine.style.left.replace('px', ''));
+    if (leftPixels > monthLineLeft) {
+        return;
+    }
+    var right = (285 - monthLineLeft) + 'px';
+    var amountLeft = ((monthLineLeft / 285) * budgeted) - spent;
+    var tr = buildBarHtml(node.id, right, left, amountLeft, budgetCategory);
+    var barDiv = _node.getElementsByTagName('div')[0];
+    barDiv.innerHTML = barDiv.innerHTML + tr.outerHTML;
+    var oldHeight = monthLine.offsetHeight;
+    // monthLine.style.height = (oldHeight + 28) + 'px';
 }
 
 function supplementAdded(nodeId) {
