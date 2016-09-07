@@ -17,7 +17,7 @@ function isBudgetBar(div) {
     if (div.tagName != "TR") {
         return;
     }
-    return hasClass(div, "monthly");
+    return hasClass(div, "monthly") || hasClass(div, "accrued");
 }
 
 function isBetterMintComponent(node) {
@@ -100,7 +100,7 @@ function addBudgetBarSupplement(node) {
         var budgeted = getMoneyBudgeted(node);
         var budgetCategory = getBudgetCategory(node);
 
-        if (!spent || !budgeted) {
+        if (spent == null || budgeted == null) {
             console.log("Failed to parse money spent for node with ID: " + node.id);
             return;
         }
@@ -148,7 +148,7 @@ var observer = new MutationObserver(function(mutations) {
             }
             if (hasClass(node, 'OverviewPageView')) {
                 // Add top bar?
-                initializeBetterMint(node);
+                // initializeBetterMint(node);
             }
             if (node.id == 'overview-left-column') {
 //                initializeBetterMint(node);
