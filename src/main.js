@@ -138,7 +138,7 @@ function supplementAdded(nodeId) {
 
 var observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
-        var work = [];
+        var nodesForBudgetBars = [];
         for (var i = 0; i < mutation.addedNodes.length; i++) {
             var node = mutation.addedNodes[i];
             if (!node) {
@@ -149,11 +149,7 @@ var observer = new MutationObserver(function(mutations) {
             }
             if (isBudgetBar(node)) {
                 console.log("Budget bar");
-                work.push(function() {
-                    if (!supplementAdded(node.id)) {
-                        doAddBudgetBarSupplement(node);
-                        }
-                });
+                nodesForBudgetBars.push(node);
             }
             if (hasClass(node, 'OverviewPageView')) {
                 // Add top bar?
@@ -163,12 +159,14 @@ var observer = new MutationObserver(function(mutations) {
 //                initializeBetterMint(node);
             }
         }
-        setTimeout(function() {
-            var i;
-            for (i = 0; i < work.length; i++) {
-                work[i]();
-            }
-        }, 1);
+        var i;
+        for (i = 0; i < nodesForBudgetBars.length; i++) {
+            setTimeout(function() {
+                if (!supplementAdded(node.id)) {
+                    doAddBudgetBarSupplement(node);
+                }
+            }, 1);
+        }
         return true;
     });
 });
