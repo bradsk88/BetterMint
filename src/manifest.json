@@ -1,9 +1,10 @@
 {
   "name": "BetterMint",
   "description": "Surface improvements to Mint.com",
-  "version": "0.0.0.1",
+  "version": "0.0.1",
   "manifest_version": 2,
   "icons": {
+    "64": "resources/icon64.png"
   },
   "app": {
     "launch": {
