@@ -4,7 +4,9 @@
   "version": "0.0.1",
   "manifest_version": 2,
   "icons": {
-    "64": "resources/icon64.png"
+    "16": "icon16.png",
+    "64": "icon64.png",
+    "128": "icon128.png"
   },
   "app": {
     "launch": {
