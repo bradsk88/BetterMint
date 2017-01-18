@@ -15,7 +15,8 @@
       "js": [
         "common.js",
         "main.js",
-        "overview/budgetbars.js"
+        "overview/budgetbars.js",
+        "planning/budgetbars.js"
       ]
     }
   ]

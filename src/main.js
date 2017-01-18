@@ -14,19 +14,18 @@ function initializeBetterMint(leftColumnNode) {
 
 var observer = new MutationObserver(function(mutations) {
     var overviewBudgetBars = new OverviewBudgetBars();
+    var planningBudgetBars = new PlanningBudgetBars();
     mutations.forEach(function(mutation) {
         for (var i = 0; i < mutation.addedNodes.length; i++) {
             var node = mutation.addedNodes[i];
             if (!node) {
                 continue;
             }
-            if (!!node.parentElement && node.parentElement.id == 'spendingBudget-list-body') {
-                node.style.background = 'red';
-            }
             if (isBetterMintComponent(node)) {
                 continue;
             }
             overviewBudgetBars.consider(node);
+            planningBudgetBars.consider(node);
             
             if (hasClass(node, 'OverviewPageView')) {
                 // Add top bar?
@@ -37,6 +36,7 @@ var observer = new MutationObserver(function(mutations) {
             }
         }
         overviewBudgetBars.batchAddComponents();
+        planningBudgetBars.batchAddComponents();
         return true;
     });
 });
