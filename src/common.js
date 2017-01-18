@@ -19,3 +19,13 @@ function removeElementsByClass(className){
         elements[0].parentNode.removeChild(elements[0]);
     }
 }
+
+function getDollarsIntFromText(text) {
+    return Number(text.replace('–', '-').replace(/[^0-9^\-\.]+/g, ""));
+}
+
+function getTodayAsFractionOfMonth() {
+    var monthMax = 30; // TODO: Find actual length of current month
+    var today = new Date().getDate();
+    return today / monthMax;
+}

@@ -6,6 +6,7 @@ function OverviewBudgetBars() {
     self.buildBarHtml = function (id, right, left, amount, budgetCategory) {
         // var tr = document.createElement("tr");
         // tr.id = 'supplement-' + id;
+        // TODO: Can bar be deleted?
         var bar = document.createElement('div');
         bar.classList = ['bar'];
         var span = document.createElement("span");
@@ -58,7 +59,7 @@ function OverviewBudgetBars() {
             if (hasClass(child, 'bar')) {
                 var spans = child.getElementsByTagName('span');
                 if (!!spans) {
-                    return Number(spans[0].innerHTML.replace('–', '-').replace(/[^0-9^\-\.]+/g, ""));
+                    return getDollarsIntFromText(spans[0].innerHTML);
                 }
             }
         }
