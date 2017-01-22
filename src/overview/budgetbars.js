@@ -98,7 +98,7 @@ function OverviewBudgetBars() {
             return;
         }
         var right = (285 - monthLineLeft) + 'px';
-        var amountLeft = ((monthLineLeft / 285) * budgeted) - spent;
+        var amountLeft = (budgeted * getTodayAsFractionOfMonth()) - spent;
         var tr = self.buildBarHtml(node.id, right, left, amountLeft, budgetCategory);
         var barDiv = _node.getElementsByTagName('div')[0];
         barDiv.innerHTML = barDiv.innerHTML + tr.outerHTML;

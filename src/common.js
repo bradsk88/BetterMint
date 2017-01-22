@@ -25,7 +25,8 @@ function getDollarsIntFromText(text) {
 }
 
 function getTodayAsFractionOfMonth() {
-    var monthMax = 30; // TODO: Find actual length of current month
-    var today = new Date().getDate();
-    return today / monthMax;
+    var today = new Date();
+    var d= new Date(today.getFullYear(), today.getMonth()+1, 0);
+    var monthMax = d.getDate();
+    return today.getDate() / monthMax;
 }
