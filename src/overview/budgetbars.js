@@ -80,12 +80,15 @@ function OverviewBudgetBars() {
         var budgeted = self.getMoneyBudgeted(node);
         var budgetCategory = self.getBudgetCategory(node);
 
+	var MINT_BAR_WIDTH = 275;
+
         if (spent == null || budgeted == null) {
             console.log("Failed to parse money spent for node with ID: " + node.id);
             return;
         }
-        var leftPixels = 285 * (spent / budgeted);
-        if (285 - leftPixels < 10) {
+        var leftPixels = 275 * (spent / budgeted);
+	leftPixels = leftPixels - 1;
+        if (275 - leftPixels < 10) {
             return;
         }
         if (leftPixels < 0) {
@@ -97,7 +100,7 @@ function OverviewBudgetBars() {
         if (leftPixels > monthLineLeft) {
             return;
         }
-        var right = (285 - monthLineLeft) + 'px';
+        var right = (275 - monthLineLeft) + 'px';
         var amountLeft = (budgeted * getTodayAsFractionOfMonth()) - spent;
         var tr = self.buildBarHtml(node.id, right, left, amountLeft, budgetCategory);
         var barDiv = _node.getElementsByTagName('div')[0];

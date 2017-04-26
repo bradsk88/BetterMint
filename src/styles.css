@@ -8,8 +8,9 @@
 
 #module-budget table div.bar span.bettermint-budget-bar-supplement {
     background: none;
-    height: 85%;
+    height: 100%;
     position: absolute;
+    background-color: rgba(0, 200, 0, 0.25);
 }
 
 #module-budget table div.bar span.bettermint-budget-bar-supplement:hover {
