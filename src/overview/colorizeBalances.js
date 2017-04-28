@@ -1,11 +1,19 @@
-function OverviewBudgetBars() {
+function OverviewBalanceColors() {
     var self = this;
     self.nodes = [];
-    self.needsPurge = false;
+    self.active = false;
 
-	self.isActive = function() {
-		return true;
-	};
+    self.init = function() {    
+        chrome.storage.sync.get({
+	    colorizedOverviewBalances: true
+	}, function(items) {
+	    self.active = items.colorizedOverviewBalances;
+	});
+    };
+
+    self.isActive = function() {
+    	return self.active;
+    };
 
     self.buildBarHtml = function (id, right, left, amount, budgetCategory) {
         // var tr = document.createElement("tr");
@@ -119,27 +127,25 @@ function OverviewBudgetBars() {
     };
 
     self.isBudgetBar = function(div) {
-        if (div.tagName != "TR") {
+        if (div.tagName != "LI") {
             return;
         }
-        return hasClass(div, "monthly") || hasClass(div, "accrued");
+        return hasClass(div, "accounts-data-li");
     };
 
     self.consider = function(node) {
         if (self.isBudgetBar(node)) {
-            self.nodes.push(node);
-            self.needsPurge = true;
+            self.nodes.push(node.getElementsByClassName('balance')[0]);
         }
     };
 
     self.batchAddComponents = function() {
-        if (self.needsPurge) {
-            removeElementsByClass('bettermint-budget-bar-supplement');
-            self.needsPurge = false;
-        }
         var i;
         for (i = 0; i < self.nodes.length; i++) {
-            self.addBudgetBarSupplement(self.nodes[i]);
+	    var n = self.nodes[i];
+	    if (n.innerHTML[0] == '-') {
+	    	n.style.color = "#B00";
+	    }
         }
     };
 }

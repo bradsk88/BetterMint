@@ -57,3 +57,7 @@
 .MintNavigationView #tabs-navbar {
     top: 8px !important;
 }
+
+#module-accounts ul li.moduleAccount ul li {
+    padding: 8px !important;
+}

@@ -1,8 +1,12 @@
 {
   "name": "BetterMint",
   "description": "Surface improvements to Mint.com",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "manifest_version": 2,
+  "permissions": [
+    "storage"
+  ],
+  "options_page": "options.html",
   "icons": {
     "16": "resources/icon16.png",
     "64": "resources/icon64.png",
@@ -14,9 +18,10 @@
       "css": ["styles.css"],
       "js": [
         "common.js",
-        "main.js",
         "overview/budgetbars.js",
-        "planning/budgetbars.js"
+        "planning/budgetbars.js",
+	"overview/colorizeBalances.js",
+        "main.js"
       ]
     }
   ]

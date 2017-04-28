@@ -3,6 +3,11 @@ const PREFIX = 'planning-supplement-';
 function PlanningBudgetBars() {
     var self = this;
     self.nodes = [];
+
+	self.isActive = function() {
+		return true;
+	};
+
     self.consider = function(node) {
         if (!!node.parentElement && node.parentElement.id == 'spendingBudget-list-body') {
             self.nodes.push(node);
@@ -50,4 +55,4 @@ function PlanningBudgetBars() {
             }, 1);
         }
     };
-}
+};
