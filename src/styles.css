@@ -26,7 +26,10 @@
     color: green;
     text-align: center;
 }
-
+#spendingBudget-list #spendingBudget-list-body.planning_items .status span.bettermint_planning_supplement_bar.left {
+    border-left: 1px solid #49a249;
+    border-bottom: 1px solid #49a249;
+}
 #spendingBudget-list #spendingBudget-list-body.planning_items .status span.bettermint_planning_supplement_bar:hover {
     background-color: rgba(0, 200, 0, 0.5);
 }
