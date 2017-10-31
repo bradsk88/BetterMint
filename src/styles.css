@@ -10,7 +10,7 @@
     background: none;
     height: 100%;
     position: absolute;
-    background-color: rgba(0, 200, 0, 0.25);
+    background-color: rgba(0, 200, 0, 0.25) !important;
 }
 
 #module-budget table div.bar span.bettermint-budget-bar-supplement:hover {
