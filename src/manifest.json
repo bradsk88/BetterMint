@@ -10,8 +10,16 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://*.mint.com/*", "https://*.mint.com/*", "http://mint.intuit.com/*", "https://mint.intuit.com/*"],
-      "css": ["styles.css"],
+      "matches": [
+        "http://*.mint.com/*",
+        "https://*.mint.com/*",
+        "http://mint.intuit.com/*",
+        "https://mint.intuit.com/*"
+      ],
+      "css": [
+        "styles.css",
+        "planning/styles.css"
+      ],
       "js": [
         "common.js",
         "main.js",

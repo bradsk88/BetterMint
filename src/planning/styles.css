@@ -1,0 +1,19 @@
+.clampButton {
+    position: absolute;
+    right: -43px;
+    width: 35px;
+    background: rgb(173, 216, 230);
+    top: 0;
+    bottom: 16px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: black;
+}
+
+.monthly.hover .clampButton {
+    right: -8px;
+    top: 2px;
+    bottom: 2px;
+    width: 35px;
+    box-shadow: 5px 0 6px rgb(103, 146, 160);
+}
