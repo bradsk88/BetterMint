@@ -37,6 +37,7 @@ function PlanningBudgetBars() {
     self.clampButtonClicked = function() {
         const updater = document.getElementById('pop-budget');
         window['$MC']['Planning'].openBudgetPopup(); // FIXME: Don't have access to this because of sandbox
+	// TODO: Get element "edit budget" from page and programmatically click it instead of this ^
         document.getElementById('pop-budget-2-amount').value = 111;
         document.getElementById('pop-budget-frequency-0').value = 0;
         // document.getElementById('pop-budget-submit').click();
