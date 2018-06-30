@@ -1,3 +1,4 @@
+
 function isBetterMintComponent(node) {
     return hasClass(node, 'bettermint-budget-bar-supplement');
 }
@@ -5,9 +6,7 @@ function isBetterMintComponent(node) {
 // function initializeBetterMint(leftColumnNode) {
 //     setTimeout(function() {
 //         var badge = document.createElement("div");
-//         const classList = new DOMTokenList();
-//         classList.add('bm-header-badge');
-//         badge.classList = classList;
+//         badge.classList.add('bm-header-badge');
 //         badge.innerHTML = "BetterMint Extension is Active";
 //         leftColumnNode.innerHTML = badge.outerHTML + leftColumnNode.innerHTML
 //     }, 2000);
@@ -17,6 +16,7 @@ function isBetterMintComponent(node) {
 const observer = new MutationObserver(function (mutations) {
     const overviewBudgetBars = new OverviewBudgetBars();
     const planningBudgetBars = new PlanningBudgetBars();
+    const futurePlanningEditor = new FuturePlanningEditor();
 
     mutations.forEach(function (mutation) {
         for (var i = 0; i < mutation.addedNodes.length; i++) {
@@ -29,6 +29,8 @@ const observer = new MutationObserver(function (mutations) {
             }
             overviewBudgetBars.consider(node);
             planningBudgetBars.consider(node);
+            futurePlanningEditor.consider(node);
+
 
             if (hasClass(node, 'OverviewPageView')) {
                 // Add top bar?
@@ -40,6 +42,7 @@ const observer = new MutationObserver(function (mutations) {
         }
         overviewBudgetBars.batchAddComponents();
         planningBudgetBars.batchAddComponents();
+        futurePlanningEditor.batchAddComponents();
         return true;
     });
 });

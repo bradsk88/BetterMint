@@ -1,7 +1,7 @@
 {
   "name": "BetterMint",
   "description": "Surface improvements to Mint.com",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "manifest_version": 2,
   "icons": {
     "16": "resources/icon16.png",
@@ -11,13 +11,20 @@
   "content_scripts": [
     {
       "matches": ["http://*.mint.com/*", "https://*.mint.com/*", "http://mint.intuit.com/*", "https://mint.intuit.com/*"],
-      "css": ["styles.css"],
+      "css": ["styles.css", "future/planning.css"],
       "js": [
         "common.js",
         "main.js",
         "overview/budgetbars.js",
-        "planning/budgetbars.js"
+        "planning/budgetbars.js",
+        "future/planning.js"
       ]
     }
+  ],
+  "web_accessible_resources": [
+		"ext-images/future-planning.svg"
+  ],
+  "permissions": [
+    "storage"
   ]
 }

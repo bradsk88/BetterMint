@@ -1,0 +1,22 @@
+.future-planning-open {
+    position: absolute;
+    right: 50px;
+    top: -5px;
+}
+
+.future-planning-open:hover {
+    background: radial-gradient(ellipse at center, rgba(109,206,109,1) 0%,rgba(125,185,232,0) 75%);
+}
+
+#future-planning-pane {
+    position: absolute;
+    width: 200px;
+    top: -1px;
+    right: -200px;
+}
+
+#future-planning-pane input {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
