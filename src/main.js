@@ -2,20 +2,23 @@ function isBetterMintComponent(node) {
     return hasClass(node, 'bettermint-budget-bar-supplement');
 }
 
-function initializeBetterMint(leftColumnNode) {
-    setTimeout(function() {
-        var badge = document.createElement("div");
-        badge.classList = ['bm-header-badge'];
-        badge.innerHTML = "BetterMint Extension is Active";
-        leftColumnNode.innerHTML = badge.outerHTML + leftColumnNode.innerHTML
-    }, 2000);
-}
+// function initializeBetterMint(leftColumnNode) {
+//     setTimeout(function() {
+//         var badge = document.createElement("div");
+//         const classList = new DOMTokenList();
+//         classList.add('bm-header-badge');
+//         badge.classList = classList;
+//         badge.innerHTML = "BetterMint Extension is Active";
+//         leftColumnNode.innerHTML = badge.outerHTML + leftColumnNode.innerHTML
+//     }, 2000);
+// }
 
 
-var observer = new MutationObserver(function(mutations) {
-    var overviewBudgetBars = new OverviewBudgetBars();
-    var planningBudgetBars = new PlanningBudgetBars();
-    mutations.forEach(function(mutation) {
+const observer = new MutationObserver(function (mutations) {
+    const overviewBudgetBars = new OverviewBudgetBars();
+    const planningBudgetBars = new PlanningBudgetBars();
+
+    mutations.forEach(function (mutation) {
         for (var i = 0; i < mutation.addedNodes.length; i++) {
             var node = mutation.addedNodes[i];
             if (!node) {
@@ -26,12 +29,12 @@ var observer = new MutationObserver(function(mutations) {
             }
             overviewBudgetBars.consider(node);
             planningBudgetBars.consider(node);
-            
+
             if (hasClass(node, 'OverviewPageView')) {
                 // Add top bar?
                 // initializeBetterMint(node);
             }
-            if (node.id == 'overview-left-column') {
+            if (node.id === 'overview-left-column') {
 //                initializeBetterMint(node);
             }
         }
