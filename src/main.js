@@ -47,3 +47,14 @@ const observer = new MutationObserver(function (mutations) {
     });
 });
 observer.observe(document, { childList: true, subtree: true });
+
+function loadCategories() {
+    let url = 'https://mint.intuit.com/app/getJsonData.xevent?task=categories&rnd=' + new Date().getTime();
+    // url = 'https://mint.intuit.com/bundledServiceController.xevent?legacy=false&token=';
+    fetch(url)
+        .then(data => data.text())
+        .then(text => console.log(text))
+        .catch(e => console.log(e));
+}
+
+loadCategories();
