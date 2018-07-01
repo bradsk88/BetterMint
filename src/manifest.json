@@ -1,7 +1,7 @@
 {
   "name": "BetterMint",
   "description": "Surface improvements to Mint.com",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "manifest_version": 2,
   "icons": {
     "16": "resources/icon16.png",
@@ -11,7 +11,7 @@
   "content_scripts": [
     {
       "matches": ["http://*.mint.com/*", "https://*.mint.com/*", "http://mint.intuit.com/*", "https://mint.intuit.com/*"],
-      "css": ["styles.css"],
+      "css": ["styles.css", "alerts/dismissal.css"],
       "js": [
         "common.js",
         "main.js",
