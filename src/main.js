@@ -39,6 +39,7 @@ var observer = new MutationObserver(function(mutations) {
         }
         overviewBudgetBars.batchAddComponents();
         planningBudgetBars.batchAddComponents();
+		autoSplitButton.batchAddComponents();
         return true;
     });
 });

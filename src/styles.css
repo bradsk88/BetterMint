@@ -77,3 +77,26 @@
 .MintNavigationView #tabs-navbar {
     top: 8px !important;
 }
+
+.amount-cell {
+	display: flex !important;
+	position: relative;
+}
+
+.autosplit-button {
+	margin-left: 6px !important;
+	margin-top: 4px !important;
+	margin-bottom: 2px !important;
+}
+
+div#pop-split {
+	width: 800px !important;
+}
+
+div.pop#pop-split tr label {
+    position: absolute !important;
+    top: 42px !important;
+    height: 20px !important;
+    display: block !important;
+    left: 0px !important;
+}
