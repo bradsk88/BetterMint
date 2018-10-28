@@ -1,3 +1,18 @@
+@media only screen and (min-width: 1200px) {
+	#wrapper {
+		max-width: 1200px !important;
+	}
+	.navbar-header {
+		max-width: 1200px !important;
+	}
+	#module-accounts a.accountName {
+		width: 290px !important;
+	}
+	#module-accounts span.nickname {
+		width: 290px !important;
+	}
+}
+
 .bm-header-badge {
     background-color: #0ac775;
     padding: 0.25em;
