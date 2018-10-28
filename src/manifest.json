@@ -1,7 +1,7 @@
 {
   "name": "BetterMint",
   "description": "Surface improvements to Mint.com",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "manifest_version": 2,
   "icons": {
     "16": "resources/icon16.png",
@@ -16,7 +16,8 @@
         "common.js",
         "main.js",
         "overview/budgetbars.js",
-        "planning/budgetbars.js"
+        "planning/budgetbars.js",
+	"planning/autosplit.js"
       ]
     }
   ]
