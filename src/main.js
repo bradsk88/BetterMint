@@ -15,6 +15,7 @@ function initializeBetterMint(leftColumnNode) {
 var observer = new MutationObserver(function(mutations) {
     var overviewBudgetBars = new OverviewBudgetBars();
     var planningBudgetBars = new PlanningBudgetBars();
+    var autoSplitButton = new AutoSplitButton();
     mutations.forEach(function(mutation) {
         for (var i = 0; i < mutation.addedNodes.length; i++) {
             var node = mutation.addedNodes[i];
@@ -26,6 +27,7 @@ var observer = new MutationObserver(function(mutations) {
             }
             overviewBudgetBars.consider(node);
             planningBudgetBars.consider(node);
+			autoSplitButton.consider(node);
             
             if (hasClass(node, 'OverviewPageView')) {
                 // Add top bar?
@@ -37,6 +39,7 @@ var observer = new MutationObserver(function(mutations) {
         }
         overviewBudgetBars.batchAddComponents();
         planningBudgetBars.batchAddComponents();
+		autoSplitButton.batchAddComponents();
         return true;
     });
 });
