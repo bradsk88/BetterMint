@@ -56,15 +56,15 @@
     margin-top: 0 !important;
 }
 
-.CardView { 
+.CardView {
     padding: 16px !important;
 }
 
 #module-alert .alert-list li {
-    padding: 6px 0 0 0 !important; 
+    padding: 6px 0 0 0 !important;
 }
 
-.NavigationContainerView .navbar-header { 
+.NavigationContainerView .navbar-header {
     padding-bottom: 10px !important;
     padding-top: 10px !important;
 }
@@ -83,14 +83,40 @@
 	position: relative;
 }
 
+/* Overriding mint styles to flow with BetterMint */
+td.split > a.btn.btn-sm.btn-hollow {
+    margin-top: 6px !important;
+    margin-bottom: 0 !important;
+    padding-top: 6px !important;
+    margin-left: -10px !important;
+}
+
 .autosplit-button {
 	margin-left: 6px !important;
 	margin-top: 4px !important;
 	margin-bottom: 2px !important;
 }
 
+.tip-button {
+	margin-left: 6px !important;
+	margin-top: 4px !important;
+	margin-bottom: 2px !important;
+    min-width: 32px !important;
+    width: 32px !important;
+    display: flex !important;
+    padding: 0 !important;
+}
+
+.tip-button div {
+    margin: auto;
+}
+
 div#pop-split {
 	width: 800px !important;
+}
+
+th.descrip-cell, td.category-cell {
+    position: relative;
 }
 
 div.pop#pop-split tr label {
