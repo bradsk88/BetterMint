@@ -1,7 +1,7 @@
 {
   "name": "BetterMint",
   "description": "Surface improvements to Mint.com",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "manifest_version": 2,
   "icons": {
     "16": "resources/icon16.png",

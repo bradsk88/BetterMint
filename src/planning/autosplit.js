@@ -121,7 +121,7 @@ function AutoSplitButton() {
         return Boolean(supplementNode);
     };
     self.addTipButton = function() {
-    	return; // TODO: Add option to turn this on
+    	// return; // TODO: Add option to turn this on
 		// TODO: make this button only show up on the last cell
 		if (self.nodes.length === 0) {
 			return;
@@ -144,6 +144,6 @@ function AutoSplitButton() {
                 }
             }, 1);
         }
-
+		self.addTipButton();
     };
 }
