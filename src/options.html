@@ -1,0 +1,59 @@
+<html>
+<head>
+    <style>
+        .optionSection {
+            display: flex;
+            flex-flow: column;
+            flex-grow: 0;
+            align-items: start;
+        }
+
+        .optionSection img {
+            object-fit: contain;
+        }
+
+        #saved {
+            font-size: 36px;
+            line-height: 36px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1em;
+            background: palegreen;
+            color: darkgreen;
+            text-align: center;
+            display: none;
+        }
+        #saved:after {
+            content: 'saved';
+        }
+    </style>
+</head>
+<body>
+
+<div id="saved"></div>
+
+<h1>Options</h1>
+<p>
+<h2>
+    <label for="tip-enable">Enable tip button</label>
+    <input type="checkbox" name="tip-enable" id="tip-enable-checkbox"/>
+</h2>
+<p id="tip-percent" hidden="hidden">
+    <label for="tip-percent-input">Percent</label>
+    <input type="number" name="tip-percent" id="tip-percent-input"/>
+</p>
+<div class="optionSection">
+    <div>This will add an additional button to the "split transaction" popup which
+        will allow you to set one of the split values to a percentage of the total
+        cost. This is useful if you always tip the same percentage.
+    </div>
+    <h3>Example</h3>
+    <img src="options-tip.png"/>
+</div>
+</p>
+<button id="save">Save Settings</button>
+<script type="text/javascript" src="options.js"></script>
+</body>
+</html>
