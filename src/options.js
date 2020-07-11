@@ -27,5 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         console.log('saving', settings);
         chrome.storage.sync.set(settings);
+        document.getElementById('saved').style.display = 'block';
+        setTimeout(() => {
+            document.getElementById('saved').style.display = 'none';
+        }, 3000);
     });
 })

@@ -36,7 +36,7 @@ function AutoSplitButton() {
 		var allRows = [].slice.call(node.parentElement.parentElement.getElementsByTagName('tr'));
 		allRows = allRows.filter(r => !containsAny(r, ['hide'])); // TODO: still needed?
 		allRows = allRows.map(r => r.getElementsByClassName('amount-cell')[0]);
-		allRows = allRows.filter(r => r !== node);
+		// allRows = allRows.filter(r => r !== node);
 		return allRows;
 	}
 
@@ -49,14 +49,18 @@ function AutoSplitButton() {
 		setAmount(node, Math.round((total - amount) * 100) / 100);
 	}
 
-	function tipFillField(node, total) {
-		const tipAmount = Math.floor(total * 20) / 100; // TODO: Settable
+	function tipFillField(node, total, percent) {
+		const tipAmount = Math.floor(total * percent) / 100;
 		const currentAmount = getAmount(node);
 		if (tipAmount === currentAmount) {
 			return;
 		}
 		const allRows = getAllRows(node);
 		const firstRow = allRows[0];
+		if (node === firstRow) {
+			setAmount(node, tipAmount);
+			return;
+		}
 		var amount = getAmount(firstRow);
 		const remainderAmount = Math.ceil((amount - tipAmount) * 100) / 100;
 		setAmount(node, tipAmount);
@@ -96,18 +100,23 @@ function AutoSplitButton() {
 			}).bind(handler));
 			node.append(btn);
     };
-	self.doAddTipComponent = function(node) {
+	self.doAddTipComponent = function(node, percent) {
 		var btn  = document.createElement('a');
 		btn.id = SPLIT_PREFIX + node.parentElement.id;
 		btn.classList.add("btn","btn-sm", "btn-hollow", "tip-button");
 		btn.innerHTML = "<div>Tip<div>";
 
+		var total = document.getElementsByTagName('thead')[0].children[0].children[2].innerText.substr(1);
+		if (total === "777.77") {
+			console.log('hi');
+			return;
+		}
+
 		var handler = {
 			node: node,
+			totalNum: Number.parseFloat(total),
 			handle: function() {
-				var total = document.getElementsByTagName('thead')[0].children[0].children[2].innerText.substr(1);
-				total = Number.parseFloat(total);
-				tipFillField(node, total);
+				tipFillField(this.node, this.totalNum, percent);
 			}
 		};
 
@@ -120,9 +129,7 @@ function AutoSplitButton() {
         var supplementNode = document.getElementById(SPLIT_PREFIX + nodeId + type);
         return Boolean(supplementNode);
     };
-    self.addTipButton = function() {
-    	// return; // TODO: Add option to turn this on
-		// TODO: make this button only show up on the last cell
+    self.addTipButton = function(percent) {
 		if (self.nodes.length === 0) {
 			return;
 		}
@@ -130,7 +137,7 @@ function AutoSplitButton() {
 		lastNode.forEach((node) => {
 			setTimeout(function () {
 				if (!self.supplementAdded(node.parentElement.id, 'tip')) {
-					self.doAddTipComponent(node);
+					self.doAddTipComponent(node, percent);
 				}
 			}, 1);
 		});
@@ -144,6 +151,8 @@ function AutoSplitButton() {
                 }
             }, 1);
         }
-		self.addTipButton();
+        if (tipPercent > 0) {
+			self.addTipButton(tipPercent);
+		}
     };
 }

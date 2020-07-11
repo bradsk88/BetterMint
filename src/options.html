@@ -11,9 +11,28 @@
         .optionSection img {
             object-fit: contain;
         }
+
+        #saved {
+            font-size: 36px;
+            line-height: 36px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1em;
+            background: palegreen;
+            color: darkgreen;
+            text-align: center;
+            display: none;
+        }
+        #saved:after {
+            content: 'saved';
+        }
     </style>
 </head>
 <body>
+
+<div id="saved"></div>
 
 <h1>Options</h1>
 <p>

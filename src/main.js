@@ -11,11 +11,17 @@ function initializeBetterMint(leftColumnNode) {
     }, 2000);
 }
 
+let tipPercent = 0;
+chrome.storage.sync.get('tipPercent', (settings) => {
+    if (settings['tipPercent'] !== "") {
+        tipPercent = Number.parseInt(settings['tipPercent']);
+    }
+});
 
 var observer = new MutationObserver(function(mutations) {
     var overviewBudgetBars = new OverviewBudgetBars();
     var planningBudgetBars = new PlanningBudgetBars();
-    var autoSplitButton = new AutoSplitButton();
+    var autoSplitButton = new AutoSplitButton(settings);
     mutations.forEach(function(mutation) {
         for (var i = 0; i < mutation.addedNodes.length; i++) {
             var node = mutation.addedNodes[i];
