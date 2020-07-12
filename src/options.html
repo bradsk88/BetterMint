@@ -28,6 +28,11 @@
         #saved:after {
             content: 'saved';
         }
+        em {
+            font-weight: bold;
+            margin: 0 8px;
+            font-style: normal;
+        }
     </style>
 </head>
 <body>
@@ -37,13 +42,13 @@
 <h1>Options</h1>
 <p>
 <h2>
-    <label for="tip-enable">Enable tip button</label>
+    <label for="tip-enable">Enable tip button</label><em>(Beta)</em>
     <input type="checkbox" name="tip-enable" id="tip-enable-checkbox"/>
 </h2>
-<p id="tip-percent" hidden="hidden">
+<h3 id="tip-percent" hidden="hidden">
     <label for="tip-percent-input">Percent</label>
     <input type="number" name="tip-percent" id="tip-percent-input"/>
-</p>
+</h3>
 <div class="optionSection">
     <div>This will add an additional button to the "split transaction" popup which
         will allow you to set one of the split values to a percentage of the total
