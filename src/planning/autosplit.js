@@ -36,7 +36,7 @@ function AutoSplitButton() {
 		var allRows = [].slice.call(node.parentElement.parentElement.getElementsByTagName('tr'));
 		allRows = allRows.filter(r => !containsAny(r, ['hide'])); // TODO: still needed?
 		allRows = allRows.map(r => r.getElementsByClassName('amount-cell')[0]);
-		// allRows = allRows.filter(r => r !== node);
+		allRows = allRows.filter(r => r !== node);
 		return allRows;
 	}
 
@@ -108,7 +108,6 @@ function AutoSplitButton() {
 
 		var total = document.getElementsByTagName('thead')[0].children[0].children[2].innerText.substr(1);
 		if (total === "777.77") {
-			console.log('hi');
 			return;
 		}
 
